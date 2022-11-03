@@ -2,7 +2,7 @@ package com.game.tictactoe;
 
 public class TicTacToeRunner {
     public static void main(String[] args) {
-        TicTacToeDatabase database = new TicTacToeDatabase();
-        database.showStatus();
+        TicTacToeGame game = new TicTacToeGame();
+        game.run();
     }
 }
