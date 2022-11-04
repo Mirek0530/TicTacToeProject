@@ -132,14 +132,16 @@ public class TicTacToeData {
         return allOccupied;
     }
 
-    public boolean getNextMoveAndCheckIfPossible(int cellNumber, int signNumber) {
+    public boolean getNextMoveAndCheckIfPossible(int cellNumber, int signNumber, boolean botPlayed) {
         boolean isPossible = false;
         if (cellsMap.get(cellNumber) == 0) {
             cellsMap.remove(cellNumber);
             cellsMap.put(cellNumber, signNumber);
             isPossible = true;
         } else {
-            messager.errorCellIsOccupied();
+            if (!botPlayed) {
+                messager.errorCellIsOccupied();
+            }
         }
         return isPossible;
     }

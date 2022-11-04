@@ -34,15 +34,26 @@ public class TicTacToeMessager {
         }
     }
 
-    public void errorChoosingCell() {
-        System.out.println("Error input! Choose cell again.");
-    }
-
     public void errorCellIsOccupied() {
         System.out.println("Error! Chosen cell is currently occupied. Try again.");
     }
 
     public void printResult(String result) {
         System.out.println(result);
+    }
+
+    public void illegalArgument(NumberFormatException nfe) {
+        System.out.println("Invalid argument " + nfe.getMessage());
+        System.out.println("Enter number between 1 - 9!");
+    }
+
+
+    public void wrongNumber() {
+        System.out.println("Wrong number!");
+        System.out.println("Enter number between 1 - 9!");
+    }
+
+    public void computerPlayed() {
+        System.out.println("Computer's turn.");
     }
 }

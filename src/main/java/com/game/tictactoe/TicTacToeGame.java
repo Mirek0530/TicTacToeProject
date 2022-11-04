@@ -1,5 +1,6 @@
 package com.game.tictactoe;
 
+import java.util.Random;
 import java.util.Scanner;
 
 public class TicTacToeGame {
@@ -20,20 +21,16 @@ public class TicTacToeGame {
     public void run() {
         messager.welcomeMessage();
 
-        while (!gameModeSelected) {
-            messager.chooseGameModeMessage();
-            interpretGameModeInput(input.next());
-        }
+        messager.chooseGameModeMessage();
+        setGameMode(input);
 
         messager.howToPlay();
         data.showStatus();
 
         while (!end) {
             movePlayed = false;
-            while (!movePlayed) {
-                messager.requestNextMove(1);
-                interpretNextMove(input.next(), 1);
-            }
+            messager.requestNextMove(1);
+            getNextMove(input, 1);
             data.showStatus();
             end = data.isGameOver();
 
@@ -43,9 +40,11 @@ public class TicTacToeGame {
                 movePlayed = false;
             }
 
-            while (!movePlayed && gameModePlayerVsPlayer) {
+            if (!gameModePlayerVsPlayer) {
+                computerMove(2);
+            } else {
                 messager.requestNextMove(2);
-                interpretNextMove(input.next(), 2);
+                getNextMove(input, 2);
             }
 
             data.showStatus();
@@ -55,53 +54,66 @@ public class TicTacToeGame {
         data.getResult();
     }
 
-    private void interpretNextMove(String move, int signNumber) {
-        switch (move) {
-            case "1":
-                movePlayed = data.getNextMoveAndCheckIfPossible(1, signNumber);
-                break;
-            case "2":
-                movePlayed = data.getNextMoveAndCheckIfPossible(2, signNumber);
-                break;
-            case "3":
-                movePlayed = data.getNextMoveAndCheckIfPossible(3, signNumber);
-                break;
-            case "4":
-                movePlayed = data.getNextMoveAndCheckIfPossible(4, signNumber);
-                break;
-            case "5":
-                movePlayed = data.getNextMoveAndCheckIfPossible(5, signNumber);
-                break;
-            case "6":
-                movePlayed = data.getNextMoveAndCheckIfPossible(6, signNumber);
-                break;
-            case "7":
-                movePlayed = data.getNextMoveAndCheckIfPossible(7, signNumber);
-                break;
-            case "8":
-                movePlayed = data.getNextMoveAndCheckIfPossible(8, signNumber);
-                break;
-            case "9":
-                movePlayed = data.getNextMoveAndCheckIfPossible(9, signNumber);
-                break;
-            default:
-                messager.errorChoosingCell();
+    public void getNextMove(Scanner input, int signNumber) {
+        String inputEntry = "";
+        int i;
+
+        while (!movePlayed) {
+            while (true) {
+                inputEntry = input.next();
+                try {
+                    i = Integer.parseInt(inputEntry);
+                    break;
+                } catch (NumberFormatException nfe) {
+                    messager.illegalArgument(nfe);
+                }
+            }
+
+            if (i >= 1 && i <=9) {
+                movePlayed = data.getNextMoveAndCheckIfPossible(i, signNumber, false);
+            } else {
+                messager.wrongNumber();
+            }
         }
     }
 
-    private void interpretGameModeInput(String gameModeSelection) {
-        switch (gameModeSelection) {
-            case "1":
-                gameModePlayerVsPlayer = true;
-                gameModeSelected = true;
-                break;
-            case "2":
-                gameModePlayerVsPlayer = false;
-                gameModeSelected = true;
-                break;
-            default:
-                gameModeSelected = false;
-                messager.errorSettingGameMode();
+    private void computerMove(int signNumber) {
+        Random random = new Random();
+        while (!movePlayed) {
+            int generatedCellNumber = random.nextInt(9) + 1;
+            movePlayed = data.getNextMoveAndCheckIfPossible(generatedCellNumber, signNumber, true);
+        }
+        messager.computerPlayed();
+    }
+
+    private void setGameMode(Scanner input) {
+        String inputEntry = "";
+        int gameModeSelection;
+
+        while (!gameModeSelected) {
+            while (true) {
+                inputEntry = input.next();
+                try {
+                    gameModeSelection = Integer.parseInt(inputEntry);
+                    break;
+                } catch (NumberFormatException nfe) {
+                    messager.errorSettingGameMode();
+                }
+            }
+
+            switch (gameModeSelection) {
+                 case 1:
+                     gameModePlayerVsPlayer = true;
+                     gameModeSelected = true;
+                     break;
+                 case 2:
+                     gameModePlayerVsPlayer = false;
+                     gameModeSelected = true;
+                     break;
+                 default:
+                     gameModeSelected = false;
+                     messager.errorSettingGameMode();
+            }
         }
     }
 }
