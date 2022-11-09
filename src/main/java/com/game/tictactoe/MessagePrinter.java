@@ -1,6 +1,6 @@
 package com.game.tictactoe;
 
-public class TicTacToeMessager {
+public class MessagePrinter {
 
     public void welcomeMessage() {
         System.out.println("Hello! This is \"Tic-Tac-Toe\" game!");

@@ -1,6 +1,6 @@
 package com.game.tictactoe;
 
-public class TicTacToeField {
+public class Field {
     private char field1_1;
     private char field1_2;
     private char field1_3;
@@ -11,7 +11,7 @@ public class TicTacToeField {
     private char field3_2;
     private char field3_3;
 
-    public TicTacToeField() {
+    public Field() {
         field1_1 = ' ';
         field1_2 = ' ';
         field1_3 = ' ';

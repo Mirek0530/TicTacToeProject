@@ -1,22 +1,21 @@
 package com.game.tictactoe;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import com.game.tictactoe.generator.ComputerMoveGenerator;
 
-public class TicTacToeData {
-    TicTacToeField field;
-    TicTacToeMessager messager;
+import java.util.*;
+
+public class Database {
+    Field field;
+    MessagePrinter printer;
     Map<Integer, Integer> cellsMap;
 
-    public TicTacToeData() {
-        field = new TicTacToeField();
-        messager = new TicTacToeMessager();
+    public Database() {
+        field = new Field();
+        printer = new MessagePrinter();
         cellsMap = initializeCellsMap();
     }
 
-    public Map<Integer, Integer> initializeCellsMap() {
+    private Map<Integer, Integer> initializeCellsMap() {
         Map<Integer, Integer> localMap = new HashMap<>();
         localMap.put(1, 0);
         localMap.put(2, 0);
@@ -38,7 +37,7 @@ public class TicTacToeData {
         field.printField();
     }
 
-    public void mapCells(Integer cellNumber, Integer cellStatus) {
+    private void mapCells(Integer cellNumber, Integer cellStatus) {
         switch (cellNumber) {
             case 1:
                 field.setField1_1(mapCellStatus(cellStatus));
@@ -61,7 +60,7 @@ public class TicTacToeData {
         }
     }
 
-    public char mapCellStatus(Integer cellStatus) {
+    private char mapCellStatus(Integer cellStatus) {
         char sign = ' ';
         switch (cellStatus) {
             case 0:
@@ -83,7 +82,7 @@ public class TicTacToeData {
         } else {
             result = "Player" + checkWinLose() + " wins!";
         }
-        messager.printResult(result);
+        printer.printResult(result);
     }
 
     public boolean isGameOver() {
@@ -120,7 +119,7 @@ public class TicTacToeData {
         return winner;
     }
 
-    public boolean checkAllOccupied() {
+    private boolean checkAllOccupied() {
         boolean allOccupied = true;
 
         for (Map.Entry<Integer, Integer> cell : cellsMap.entrySet()) {
@@ -140,9 +139,14 @@ public class TicTacToeData {
             isPossible = true;
         } else {
             if (!botPlayed) {
-                messager.errorCellIsOccupied();
+                printer.errorCellIsOccupied();
             }
         }
         return isPossible;
+    }
+
+    public int generateComputerMove(int signNumber) {
+
+        return ComputerMoveGenerator.generateComputerMove(cellsMap, signNumber);
     }
 }

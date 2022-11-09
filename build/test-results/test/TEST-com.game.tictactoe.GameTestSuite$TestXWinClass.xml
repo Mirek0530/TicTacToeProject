@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="Test class for X win" tests="8" skipped="0" failures="0" errors="0" timestamp="2022-11-09T16:41:54" hostname="LAPTOP-8451VTIE" time="0.007">
+  <properties/>
+  <testcase name="testXWinInTopLeftToBottomRightDiagonal()" classname="com.game.tictactoe.GameTestSuite$TestXWinClass" time="0.001"/>
+  <testcase name="testXWinInSecondRow()" classname="com.game.tictactoe.GameTestSuite$TestXWinClass" time="0.001"/>
+  <testcase name="testXWinInSecondColumn()" classname="com.game.tictactoe.GameTestSuite$TestXWinClass" time="0.001"/>
+  <testcase name="testXWinInFirstRow()" classname="com.game.tictactoe.GameTestSuite$TestXWinClass" time="0.001"/>
+  <testcase name="testXWinInFirstColumn()" classname="com.game.tictactoe.GameTestSuite$TestXWinClass" time="0.001"/>
+  <testcase name="testXWinInBottomLeftToTopRightDiagonal()" classname="com.game.tictactoe.GameTestSuite$TestXWinClass" time="0.0"/>
+  <testcase name="testXWinInThirdRow()" classname="com.game.tictactoe.GameTestSuite$TestXWinClass" time="0.0"/>
+  <testcase name="testXWinInThirdColumn()" classname="com.game.tictactoe.GameTestSuite$TestXWinClass" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
