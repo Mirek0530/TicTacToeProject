@@ -131,15 +131,21 @@ public class Database {
         return allOccupied;
     }
 
-    public boolean getNextMoveAndCheckIfPossible(int cellNumber, int signNumber, boolean botPlayed) {
+    public boolean getNextMoveAndCheckIfPossible(int cellNumber, int signNumber, boolean botPlayed) throws IncorrectCellNumberException {
         boolean isPossible = false;
-        if (cellsMap.get(cellNumber) == 0) {
-            cellsMap.remove(cellNumber);
-            cellsMap.put(cellNumber, signNumber);
-            isPossible = true;
-        } else {
-            if (!botPlayed) {
-                printer.errorCellIsOccupied();
+
+        if ((cellNumber < 1) || (cellNumber > 9)) {
+            throw new IncorrectCellNumberException();
+        }
+        else {
+            if (cellsMap.get(cellNumber) == 0) {
+                cellsMap.remove(cellNumber);
+                cellsMap.put(cellNumber, signNumber);
+                isPossible = true;
+            } else {
+                if (!botPlayed) {
+                    printer.errorCellIsOccupied();
+                }
             }
         }
         return isPossible;

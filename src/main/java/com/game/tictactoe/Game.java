@@ -30,8 +30,7 @@ public class Game {
 
         while (!isEnd) {
             isMovePlayed = false;
-            printer.requestNextMove(1);
-            getNextMove(consoleInput, X_SIGN_NUMBER);
+            humanMove(X_SIGN_NUMBER);
             database.showStatus();
             isEnd = database.isGameOver();
 
@@ -41,10 +40,8 @@ public class Game {
             if (!isGameModePlayerVsPlayer) {
                 computerMove(O_SIGN_NUMBER);
             } else {
-                printer.requestNextMove(2);
-                getNextMove(consoleInput, O_SIGN_NUMBER);
+                humanMove(O_SIGN_NUMBER);
             }
-
             database.showStatus();
             isEnd = database.isGameOver();
         }
@@ -52,25 +49,22 @@ public class Game {
         database.getResult();
     }
 
+    private void humanMove(int signNumber) {
+        printer.requestNextMove(signNumber);
+        getNextMove(consoleInput, signNumber);
+    }
+
     public void getNextMove(Scanner input, int signNumber) {
-        String inputEntry = "";
+        String inputEntry;
         int chosenCellNumber;
 
         while (!isMovePlayed) {
-            while (true) {
-                inputEntry = input.next();
-                try {
-                    chosenCellNumber = Integer.parseInt(inputEntry);
-                    break;
-                } catch (NumberFormatException nfe) {
-                    printer.illegalArgument(nfe);
-                }
-            }
-
-            if (chosenCellNumber >= 1 && chosenCellNumber <=9) {
+            inputEntry = input.next();
+            try {
+                chosenCellNumber = Integer.parseInt(inputEntry);
                 isMovePlayed = database.getNextMoveAndCheckIfPossible(chosenCellNumber, signNumber, false);
-            } else {
-                printer.wrongNumber();
+            } catch (IncorrectCellNumberException | NumberFormatException exception) {
+                printer.print(exception.getMessage());
             }
         }
     }
@@ -78,7 +72,11 @@ public class Game {
     private void computerMove(int signNumber) {
         while (!isMovePlayed) {
             int generatedCellNumber = database.generateComputerMove(signNumber);
-            isMovePlayed = database.getNextMoveAndCheckIfPossible(generatedCellNumber, signNumber, true);
+            try {
+                isMovePlayed = database.getNextMoveAndCheckIfPossible(generatedCellNumber, signNumber, true);
+            } catch (IncorrectCellNumberException exception) {
+                printer.print(exception.getMessage());
+            }
         }
         printer.computerPlayed();
     }

@@ -1,7 +1,6 @@
 package com.game.tictactoe.generator;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.Map;
 import java.util.Random;
 
@@ -26,7 +25,7 @@ public class ComputerMoveGenerator {
     public static int generateComputerMove(Map<Integer, Integer> cellsMap, int signNumber) {
         Random random = new Random();
         int randomlyGeneratedMove = random.nextInt(9) + 1;
-        int finalMove = random.nextInt(9) + 1;;
+        int finalMove = 0;
 
         int signsAlreadyExistedCounter = 0;
         for (Map.Entry<Integer, Integer> cell : cellsMap.entrySet()) {

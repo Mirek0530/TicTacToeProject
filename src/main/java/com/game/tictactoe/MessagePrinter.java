@@ -56,4 +56,8 @@ public class MessagePrinter {
     public void computerPlayed() {
         System.out.println("Computer's turn.");
     }
+
+    public void print(String message) {
+        System.out.println(message);
+    }
 }
