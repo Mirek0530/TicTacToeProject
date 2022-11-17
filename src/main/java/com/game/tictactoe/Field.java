@@ -1,67 +1,47 @@
 package com.game.tictactoe;
 
+import java.util.Map;
+
 public class Field {
-    private char field1_1;
-    private char field1_2;
-    private char field1_3;
-    private char field2_1;
-    private char field2_2;
-    private char field2_3;
-    private char field3_1;
-    private char field3_2;
-    private char field3_3;
 
-    public Field() {
-        field1_1 = ' ';
-        field1_2 = ' ';
-        field1_3 = ' ';
-        field2_1 = ' ';
-        field2_2 = ' ';
-        field2_3 = ' ';
-        field3_1 = ' ';
-        field3_2 = ' ';
-        field3_3 = ' ';
+    public void printField(Map<Integer, Integer> cells) {
+        if (cells.size() == 9) {
+            printSmallField(cells);
+        }
+        if (cells.size() == 100) {
+            printBigField(cells);
+        }
     }
 
-    public void printField() {
-        System.out.println("|" + field1_1 + "|" + field1_2 + "|" + field1_3 + "|");
-        System.out.println("|" + field2_1 + "|" + field2_2 + "|" + field2_3 + "|");
-        System.out.println("|" + field3_1 + "|" + field3_2 + "|" + field3_3 + "|");
+    private String mapCell(int cellStatus) {
+        String sign = "";
+        switch (cellStatus) {
+            case 0:
+                sign = " ";
+                break;
+            case 1:
+                sign = "X";
+                break;
+            case 2:
+                sign = "O";
+                break;
+        }
+        return sign;
     }
 
-    public void setField1_1(char field1_1) {
-        this.field1_1 = field1_1;
+    private void printSmallField(Map<Integer, Integer> cells) {
+        for (int i = 0; i < 3; i++) {
+            System.out.println("|" + mapCell(cells.get(i * 3 + 1)) + "|" + mapCell(cells.get(i * 3 + 2)) + "|" + mapCell(cells.get(i * 3 + 3)) + "|");
+        }
     }
 
-    public void setField1_2(char field1_2) {
-        this.field1_2 = field1_2;
-    }
-
-    public void setField1_3(char field1_3) {
-        this.field1_3 = field1_3;
-    }
-
-    public void setField2_1(char field2_1) {
-        this.field2_1 = field2_1;
-    }
-
-    public void setField2_2(char field2_2) {
-        this.field2_2 = field2_2;
-    }
-
-    public void setField2_3(char field2_3) {
-        this.field2_3 = field2_3;
-    }
-
-    public void setField3_1(char field3_1) {
-        this.field3_1 = field3_1;
-    }
-
-    public void setField3_2(char field3_2) {
-        this.field3_2 = field3_2;
-    }
-
-    public void setField3_3(char field3_3) {
-        this.field3_3 = field3_3;
+    private void printBigField(Map<Integer, Integer> cells) {
+        for (int i = 0; i < 10; i++) {
+            System.out.println("|" + mapCell(cells.get(i * 10 + 1)) + "|" + mapCell(cells.get(i * 10 + 2)) + "|"
+                    + mapCell(cells.get(i * 10 + 3)) + "|" + mapCell(cells.get(i * 10 + 4)) + "|"
+                    + mapCell(cells.get(i * 10 + 5)) + "|" + mapCell(cells.get(i * 10 + 6)) + "|"
+                    + mapCell(cells.get(i * 10 + 7)) + "|" + mapCell(cells.get(i * 10 + 8)) + "|"
+                    + mapCell(cells.get(i * 10 + 9)) + "|" + mapCell(cells.get(i * 10 + 10)) + "|");
+        }
     }
 }

@@ -6,10 +6,10 @@ public class Game {
     private Database database;
     private MessagePrinter printer;
     private Scanner consoleInput;
-    boolean isGameModePlayerVsPlayer;
-    boolean isGameModeSelected = false;
-    boolean isEnd = false;
-    boolean isMovePlayed = false;
+    private boolean isGameModePlayerVsPlayer;
+    private boolean isGameModeSelected = false;
+    private boolean isEnd = false;
+    private boolean isMovePlayed = false;
     private final static int X_SIGN_NUMBER = 1;
     private final static int O_SIGN_NUMBER = 2;
 
@@ -25,7 +25,11 @@ public class Game {
         printer.chooseGameModeMessage();
         setGameMode(consoleInput);
 
-        printer.howToPlay();
+        printer.chooseFieldSize();
+        setFieldSize(consoleInput);
+        database.initializeCellsMap(database.getFieldSize());
+
+        printer.howToPlay(database.getFieldSize());
         database.showStatus();
 
         while (!isEnd) {
@@ -71,7 +75,7 @@ public class Game {
 
     private void computerMove(int signNumber) {
         while (!isMovePlayed) {
-            int generatedCellNumber = database.generateComputerMove(signNumber);
+            int generatedCellNumber = database.generateComputerMove();
             try {
                 isMovePlayed = database.getNextMoveAndCheckIfPossible(generatedCellNumber, signNumber, true);
             } catch (IncorrectCellNumberException exception) {
@@ -109,6 +113,30 @@ public class Game {
                      isGameModeSelected = false;
                      printer.errorSettingGameMode();
             }
+        }
+    }
+
+    private void setFieldSize(Scanner consoleInput) {
+        String inputEntry = "";
+        int fieldSizeSelection;
+
+        while (true) {
+            inputEntry = consoleInput.next();
+            try {
+                fieldSizeSelection = Integer.parseInt(inputEntry);
+                break;
+            } catch (NumberFormatException nfe) {
+                printer.errorSettingFieldSize();
+            }
+        }
+
+        switch (fieldSizeSelection) {
+            case 1:
+                database.setFieldSize(9);
+                break;
+            case 2:
+                database.setFieldSize(100);
+                break;
         }
     }
 }
