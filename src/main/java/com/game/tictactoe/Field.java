@@ -6,10 +6,10 @@ public class Field {
 
     public void printField(Map<Integer, Integer> cells) {
         if (cells.size() == 9) {
-            printSmallField(cells);
+            printField3x3(cells);
         }
         if (cells.size() == 100) {
-            printBigField(cells);
+            printField10x10(cells);
         }
     }
 
@@ -29,13 +29,13 @@ public class Field {
         return sign;
     }
 
-    private void printSmallField(Map<Integer, Integer> cells) {
+    private void printField3x3(Map<Integer, Integer> cells) {
         for (int i = 0; i < 3; i++) {
             System.out.println("|" + mapCell(cells.get(i * 3 + 1)) + "|" + mapCell(cells.get(i * 3 + 2)) + "|" + mapCell(cells.get(i * 3 + 3)) + "|");
         }
     }
 
-    private void printBigField(Map<Integer, Integer> cells) {
+    private void printField10x10(Map<Integer, Integer> cells) {
         for (int i = 0; i < 10; i++) {
             System.out.println("|" + mapCell(cells.get(i * 10 + 1)) + "|" + mapCell(cells.get(i * 10 + 2)) + "|"
                     + mapCell(cells.get(i * 10 + 3)) + "|" + mapCell(cells.get(i * 10 + 4)) + "|"

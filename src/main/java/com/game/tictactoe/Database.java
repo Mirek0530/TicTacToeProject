@@ -1,7 +1,5 @@
 package com.game.tictactoe;
 
-import com.game.tictactoe.generator.ComputerMoveGenerator;
-
 import java.util.*;
 
 public class Database {
@@ -30,7 +28,7 @@ public class Database {
     }
 
     public void getResult() {
-        String result = "";
+        String result;
         if (checkWinLose() == 0 && checkAllOccupied()) {
             result = "Draw!";
         } else {
@@ -67,80 +65,95 @@ public class Database {
 
     private Integer checkDiagonalsFromBottomToTop() {
         boolean threeInARow;
-        boolean fiveInARow = false;
+        boolean fiveInARow;
+        int bound = (int) Math.sqrt(fieldSize);
         Integer winnerSignNumber = 0;
 
-        if (fieldSize == 9) {
-            threeInARow = (cellsMap.get(7).equals(cellsMap.get(5))) && (cellsMap.get(5).equals(cellsMap.get(3)));
-            if (threeInARow && (cellsMap.get(7) != 0)) {
-                winnerSignNumber = cellsMap.get(7);
-            }
-        }
-        if (fieldSize == 100) {
-            for (int i = 0; i < 6; i++) {
-                for (int j = 0; j < 6; j++){
-                    fiveInARow = (cellsMap.get(i * 10 + 5 + j).equals(cellsMap.get(i * 10 + 14 + j)) &&
-                            cellsMap.get(i * 10 + 14 + j).equals(cellsMap.get(i * 10 + 23 + j)) &&
-                            cellsMap.get(i * 10 + 23 + j).equals(cellsMap.get(i * 10 + 32 + j)) &&
-                            cellsMap.get(i * 10 + 32 + j).equals(cellsMap.get(i * 10 + 41 + j)));
-                    if (fiveInARow && (cellsMap.get(i * 10 + 5 + j) != 0)) {
-                        winnerSignNumber = cellsMap.get(i * 10 + 5 + j);
+        if (bound < 5) {
+            for (int i = 0; i <= bound - 3; i++) {
+                for (int j = 0; j <= bound - 3; j++) {
+                    threeInARow = (cellsMap.get(i * bound + 3 + j).equals(cellsMap.get(i * bound + 3 + bound - 1 + j)) &&
+                            cellsMap.get(i * bound + 3 + bound - 1 + j).equals(cellsMap.get(i * bound + 3 + 2 * (bound - 1) + j)));
+                    if (threeInARow && (cellsMap.get(i * bound + 3 + j) != 0)) {
+                        winnerSignNumber = cellsMap.get(i * bound + 3 + j);
+                        break;
                     }
                 }
             }
+        } else {
+            for (int i = 0; i <= bound - 5; i++)
+                for (int j = 0; j <= bound - 5; j++) {
+                    fiveInARow = (cellsMap.get(i * bound + 5 + j).equals(cellsMap.get(i * bound + 5 + bound - 1 + j)) &&
+                            cellsMap.get(i * bound + 5 + bound - 1 + j).equals(cellsMap.get(i * bound + 5 + 2 * (bound - 1) + j)) &&
+                            cellsMap.get(i * bound + 5 + 2 * (bound - 1) + j).equals(cellsMap.get(i * bound + 5 + 3 * (bound - 1) + j)) &&
+                            cellsMap.get(i * bound + 5 + 3 * (bound - 1) + j).equals(cellsMap.get(i * bound + 5 + 4 * (bound - 1) + j)));
+                    if (fiveInARow && (cellsMap.get(i * bound + 5 + j) != 0)) {
+                        winnerSignNumber = cellsMap.get(i * bound + 5 + j);
+                        break;
+                    }
+                }
         }
         return winnerSignNumber;
     }
 
     private Integer checkDiagonalsFromTopToBottom() {
         boolean threeInARow;
-        boolean fiveInARow = false;
+        boolean fiveInARow;
+        int bound = (int) Math.sqrt(fieldSize);
         Integer winnerSignNumber = 0;
 
-        if (fieldSize == 9) {
-            threeInARow = (cellsMap.get(1).equals(cellsMap.get(5))) && (cellsMap.get(5).equals(cellsMap.get(9)));
-            if (threeInARow && (cellsMap.get(1) != 0)) {
-                winnerSignNumber = cellsMap.get(1);
-            }
-        }
-        if (fieldSize == 100) {
-            for (int i = 0; i < 6; i++) {
-                for (int j = 0; j < 6; j++){
-                    fiveInARow = (cellsMap.get(i * 10 + 1 + j).equals(cellsMap.get(i * 10 + 12 + j)) &&
-                            cellsMap.get(i * 10 + 12 + j).equals(cellsMap.get(i * 10 + 23 + j)) &&
-                            cellsMap.get(i * 10 + 23 + j).equals(cellsMap.get(i * 10 + 34 + j)) &&
-                            cellsMap.get(i * 10 + 34 + j).equals(cellsMap.get(i * 10 + 45 + j)));
-                    if (fiveInARow && (cellsMap.get(i * 10 + 1 + j) != 0)) {
-                        winnerSignNumber = cellsMap.get(i * 10 + 1 + j);
+        if (bound < 5) {
+            for (int i = 0; i <= bound - 3; i++) {
+                for (int j = 0; j <= bound - 3; j++) {
+                    threeInARow = (cellsMap.get(i * bound + 1 + j).equals(cellsMap.get(i * bound + bound + 2 + j)) &&
+                            cellsMap.get(i * bound + bound + 2 + j).equals(cellsMap.get(i * bound + 2 * bound + 3 + j)));
+                    if (threeInARow && (cellsMap.get(i * bound + 1 + j) != 0)) {
+                        winnerSignNumber = cellsMap.get(i * bound + 1 + j);
+                        break;
                     }
                 }
             }
+        } else {
+            for (int i = 0; i <= bound - 5; i++)
+                for (int j = 0; j <= bound - 5; j++) {
+                    fiveInARow = (cellsMap.get(i * bound + 1 + j).equals(cellsMap.get(i * bound + bound + 2 + j)) &&
+                            cellsMap.get(i * bound + bound + 2 + j).equals(cellsMap.get(i * bound + 2 * bound + 3 + j)) &&
+                            cellsMap.get(i * bound + 2 * bound + 3 + j).equals(cellsMap.get(i * bound + 3 * bound + 4 + j)) &&
+                            cellsMap.get(i * bound + 3 * bound + 4 + j).equals(cellsMap.get(i * bound + 4 * bound + 5 + j)));
+                    if (fiveInARow && (cellsMap.get(i * bound + 1 + j) != 0)) {
+                        winnerSignNumber = cellsMap.get(i * bound + 1 + j);
+                        break;
+                    }
+                }
         }
         return winnerSignNumber;
     }
 
     private Integer checkColumns() {
         boolean threeInARow;
-        boolean fiveInARow = false;
+        boolean fiveInARow;
+        int bound = (int) Math.sqrt(fieldSize);
         Integer winnerSignNumber = 0;
 
-        if (fieldSize == 9) {
-            for (int i = 1; i <= 3; i++) {
-                threeInARow = (cellsMap.get(i).equals(cellsMap.get(i + 3))) && (cellsMap.get(i + 3).equals(cellsMap.get(i + 6)));
-                if (threeInARow && (cellsMap.get(i) != 0)) {
-                    winnerSignNumber = cellsMap.get(i);
+        for (int i = 1; i <= bound; i++) {
+            if (bound < 5) {
+                for (int j = 0; j <= (bound - 3) * bound; j += bound) {
+                    threeInARow = (cellsMap.get(i + j).equals(cellsMap.get(i + bound + j)) &&
+                            cellsMap.get(i + bound + j).equals(cellsMap.get(i + 2 * bound + j)));
+                    if (threeInARow && (cellsMap.get(i + j) != 0)) {
+                        winnerSignNumber = cellsMap.get(i + j);
+                        break;
+                    }
                 }
-            }
-        }
-        if (fieldSize == 100) {
-            for (int i = 1; i <= 10; i++) {
-                for (int j = 0; j < 60; j += 10) {
-                    fiveInARow = (cellsMap.get(i + j).equals(cellsMap.get(i + 10 + j)) &&
-                            cellsMap.get(i + 10 + j).equals(cellsMap.get(i + 20 + j)) &&
-                            cellsMap.get(i + 20 + j).equals(cellsMap.get(i + 30 + j)) &&
-                            cellsMap.get(i + 30 + j).equals(cellsMap.get(i + 40 + j)));
+            } else {
+                for (int j = 0; j <= (bound - 5) * bound; j += bound) {
+                    fiveInARow = (cellsMap.get(i + j).equals(cellsMap.get(i + bound + j)) &&
+                            cellsMap.get(i + bound + j).equals(cellsMap.get(i + 2 * bound + j)) &&
+                            cellsMap.get(i + 2 * bound + j).equals(cellsMap.get(i + 3 * bound + j)) &&
+                            cellsMap.get(i + 3 * bound + j).equals(cellsMap.get(i + 4 * bound + j)));
                     if (fiveInARow && (cellsMap.get(i + j) != 0)) {
                         winnerSignNumber = cellsMap.get(i + j);
+                        break;
                     }
                 }
             }
@@ -151,26 +164,28 @@ public class Database {
     private Integer checkRows() {
         boolean threeInARow;
         boolean fiveInARow;
+        int bound = (int) Math.sqrt(fieldSize);
         Integer winnerSignNumber = 0;
 
-        if (fieldSize == 9) {
-            for (int i = 0; i < 3; i++) {
-                threeInARow = (cellsMap.get(i * 3 + 1).equals(cellsMap.get(i * 3 + 2)) &&
-                        cellsMap.get(i * 3 + 2).equals(cellsMap.get(i * 3 + 3)));
-                if (threeInARow && (cellsMap.get(i * 3 + 1) != 0)) {
-                    winnerSignNumber = cellsMap.get(i * 3 + 1);
+        for (int i = 0; i < bound; i++) {
+            if (bound < 5) {
+                for (int j = 0; j <= (bound - 3); j++) {
+                    threeInARow = (cellsMap.get(i * bound + 1 + j).equals(cellsMap.get(i * bound + 2 + j)) &&
+                            cellsMap.get(i * bound + 2 + j).equals(cellsMap.get(i * bound + 3 + j)));
+                    if (threeInARow && (cellsMap.get(i * bound + 1 + j) != 0)) {
+                        winnerSignNumber = cellsMap.get(i * bound + 1 + j);
+                        break;
+                    }
                 }
-            }
-        }
-        if (fieldSize == 100) {
-            for (int i = 0; i < 10; i++) {
-                for (int j = 0; j < 6; j++) {
-                    fiveInARow = (cellsMap.get(i * 10 + 1 + j).equals(cellsMap.get(i * 10 + 2 + j)) &&
-                            cellsMap.get(i * 10 + 2 + j).equals(cellsMap.get(i * 10 + 3 + j)) &&
-                            cellsMap.get(i * 10 + 3 + j).equals(cellsMap.get(i * 10 + 4 + j)) &&
-                            cellsMap.get(i * 10 + 4 + j).equals(cellsMap.get(i * 10 + 5 + j)));
-                    if (fiveInARow && (cellsMap.get(i * 10 + 1 + j) != 0)) {
-                        winnerSignNumber = cellsMap.get(i * 10 + 1 + j);
+            } else {
+                for (int j = 0; j <= (bound - 5); j++) {
+                    fiveInARow = (cellsMap.get(i * bound + 1 + j).equals(cellsMap.get(i * bound + 2 + j)) &&
+                            cellsMap.get(i * bound + 2 + j).equals(cellsMap.get(i * bound + 3 + j)) &&
+                            cellsMap.get(i * bound + 3 + j).equals(cellsMap.get(i * bound + 4 + j)) &&
+                            cellsMap.get(i * bound + 4 + j).equals(cellsMap.get(i * bound + 5 + j)));
+                    if (fiveInARow && (cellsMap.get(i * bound + 1 + j) != 0)) {
+                        winnerSignNumber = cellsMap.get(i * bound + 1 + j);
+                        break;
                     }
                 }
             }
