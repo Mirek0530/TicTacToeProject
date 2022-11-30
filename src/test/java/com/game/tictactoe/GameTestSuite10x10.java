@@ -29,11 +29,11 @@ public class GameTestSuite10x10 {
 
             //When
             try {
-                database.getNextMoveAndCheckIfPossible(1, O_SIGN_NUMBER, false);
-                database.getNextMoveAndCheckIfPossible(2, O_SIGN_NUMBER, false);
-                database.getNextMoveAndCheckIfPossible(3, O_SIGN_NUMBER, false);
-                database.getNextMoveAndCheckIfPossible(4, O_SIGN_NUMBER, false);
-                database.getNextMoveAndCheckIfPossible(5, O_SIGN_NUMBER, false);
+                database.getNextMoveAndCheckIfPossible(1, O_SIGN_NUMBER);
+                database.getNextMoveAndCheckIfPossible(2, O_SIGN_NUMBER);
+                database.getNextMoveAndCheckIfPossible(3, O_SIGN_NUMBER);
+                database.getNextMoveAndCheckIfPossible(4, O_SIGN_NUMBER);
+                database.getNextMoveAndCheckIfPossible(5, O_SIGN_NUMBER);
             } catch (IncorrectCellNumberException e) {
                 System.out.println(e.getMessage());
             }
@@ -50,11 +50,11 @@ public class GameTestSuite10x10 {
 
             //When
             try {
-                database.getNextMoveAndCheckIfPossible(11, O_SIGN_NUMBER, false);
-                database.getNextMoveAndCheckIfPossible(12, O_SIGN_NUMBER, false);
-                database.getNextMoveAndCheckIfPossible(13, O_SIGN_NUMBER, false);
-                database.getNextMoveAndCheckIfPossible(14, O_SIGN_NUMBER, false);
-                database.getNextMoveAndCheckIfPossible(15, O_SIGN_NUMBER, false);
+                database.getNextMoveAndCheckIfPossible(11, O_SIGN_NUMBER);
+                database.getNextMoveAndCheckIfPossible(12, O_SIGN_NUMBER);
+                database.getNextMoveAndCheckIfPossible(13, O_SIGN_NUMBER);
+                database.getNextMoveAndCheckIfPossible(14, O_SIGN_NUMBER);
+                database.getNextMoveAndCheckIfPossible(15, O_SIGN_NUMBER);
             } catch (IncorrectCellNumberException e) {
                 System.out.println(e.getMessage());
             }
@@ -71,11 +71,11 @@ public class GameTestSuite10x10 {
 
             //When
             try {
-                database.getNextMoveAndCheckIfPossible(25, O_SIGN_NUMBER, false);
-                database.getNextMoveAndCheckIfPossible(26, O_SIGN_NUMBER, false);
-                database.getNextMoveAndCheckIfPossible(27, O_SIGN_NUMBER, false);
-                database.getNextMoveAndCheckIfPossible(28, O_SIGN_NUMBER, false);
-                database.getNextMoveAndCheckIfPossible(29, O_SIGN_NUMBER, false);
+                database.getNextMoveAndCheckIfPossible(25, O_SIGN_NUMBER);
+                database.getNextMoveAndCheckIfPossible(26, O_SIGN_NUMBER);
+                database.getNextMoveAndCheckIfPossible(27, O_SIGN_NUMBER);
+                database.getNextMoveAndCheckIfPossible(28, O_SIGN_NUMBER);
+                database.getNextMoveAndCheckIfPossible(29, O_SIGN_NUMBER);
             } catch (IncorrectCellNumberException e) {
                 System.out.println(e.getMessage());
             }
@@ -92,11 +92,11 @@ public class GameTestSuite10x10 {
 
             //When
             try {
-                database.getNextMoveAndCheckIfPossible(1, O_SIGN_NUMBER, false);
-                database.getNextMoveAndCheckIfPossible(11, O_SIGN_NUMBER, false);
-                database.getNextMoveAndCheckIfPossible(21, O_SIGN_NUMBER, false);
-                database.getNextMoveAndCheckIfPossible(31, O_SIGN_NUMBER, false);
-                database.getNextMoveAndCheckIfPossible(41, O_SIGN_NUMBER, false);
+                database.getNextMoveAndCheckIfPossible(1, O_SIGN_NUMBER);
+                database.getNextMoveAndCheckIfPossible(11, O_SIGN_NUMBER);
+                database.getNextMoveAndCheckIfPossible(21, O_SIGN_NUMBER);
+                database.getNextMoveAndCheckIfPossible(31, O_SIGN_NUMBER);
+                database.getNextMoveAndCheckIfPossible(41, O_SIGN_NUMBER);
             } catch (IncorrectCellNumberException e) {
                 System.out.println(e.getMessage());
             }
@@ -113,11 +113,11 @@ public class GameTestSuite10x10 {
 
             //When
             try {
-                database.getNextMoveAndCheckIfPossible(42, O_SIGN_NUMBER, false);
-                database.getNextMoveAndCheckIfPossible(52, O_SIGN_NUMBER, false);
-                database.getNextMoveAndCheckIfPossible(62, O_SIGN_NUMBER, false);
-                database.getNextMoveAndCheckIfPossible(72, O_SIGN_NUMBER, false);
-                database.getNextMoveAndCheckIfPossible(82, O_SIGN_NUMBER, false);
+                database.getNextMoveAndCheckIfPossible(42, O_SIGN_NUMBER);
+                database.getNextMoveAndCheckIfPossible(52, O_SIGN_NUMBER);
+                database.getNextMoveAndCheckIfPossible(62, O_SIGN_NUMBER);
+                database.getNextMoveAndCheckIfPossible(72, O_SIGN_NUMBER);
+                database.getNextMoveAndCheckIfPossible(82, O_SIGN_NUMBER);
             } catch (IncorrectCellNumberException e) {
                 System.out.println(e.getMessage());
             }
@@ -134,11 +134,11 @@ public class GameTestSuite10x10 {
 
             //When
             try {
-                database.getNextMoveAndCheckIfPossible(33, O_SIGN_NUMBER, false);
-                database.getNextMoveAndCheckIfPossible(43, O_SIGN_NUMBER, false);
-                database.getNextMoveAndCheckIfPossible(53, O_SIGN_NUMBER, false);
-                database.getNextMoveAndCheckIfPossible(63, O_SIGN_NUMBER, false);
-                database.getNextMoveAndCheckIfPossible(73, O_SIGN_NUMBER, false);
+                database.getNextMoveAndCheckIfPossible(33, O_SIGN_NUMBER);
+                database.getNextMoveAndCheckIfPossible(43, O_SIGN_NUMBER);
+                database.getNextMoveAndCheckIfPossible(53, O_SIGN_NUMBER);
+                database.getNextMoveAndCheckIfPossible(63, O_SIGN_NUMBER);
+                database.getNextMoveAndCheckIfPossible(73, O_SIGN_NUMBER);
             } catch (IncorrectCellNumberException e) {
                 System.out.println(e.getMessage());
             }
@@ -154,11 +154,11 @@ public class GameTestSuite10x10 {
 
             //When
             try {
-                database.getNextMoveAndCheckIfPossible(24, O_SIGN_NUMBER, false);
-                database.getNextMoveAndCheckIfPossible(35, O_SIGN_NUMBER, false);
-                database.getNextMoveAndCheckIfPossible(46, O_SIGN_NUMBER, false);
-                database.getNextMoveAndCheckIfPossible(57, O_SIGN_NUMBER, false);
-                database.getNextMoveAndCheckIfPossible(68, O_SIGN_NUMBER, false);
+                database.getNextMoveAndCheckIfPossible(24, O_SIGN_NUMBER);
+                database.getNextMoveAndCheckIfPossible(35, O_SIGN_NUMBER);
+                database.getNextMoveAndCheckIfPossible(46, O_SIGN_NUMBER);
+                database.getNextMoveAndCheckIfPossible(57, O_SIGN_NUMBER);
+                database.getNextMoveAndCheckIfPossible(68, O_SIGN_NUMBER);
             } catch (IncorrectCellNumberException e) {
                 System.out.println(e.getMessage());
             }
@@ -175,11 +175,11 @@ public class GameTestSuite10x10 {
 
             //When
             try {
-                database.getNextMoveAndCheckIfPossible(75, O_SIGN_NUMBER, false);
-                database.getNextMoveAndCheckIfPossible(66, O_SIGN_NUMBER, false);
-                database.getNextMoveAndCheckIfPossible(57, O_SIGN_NUMBER, false);
-                database.getNextMoveAndCheckIfPossible(48, O_SIGN_NUMBER, false);
-                database.getNextMoveAndCheckIfPossible(39, O_SIGN_NUMBER, false);
+                database.getNextMoveAndCheckIfPossible(75, O_SIGN_NUMBER);
+                database.getNextMoveAndCheckIfPossible(66, O_SIGN_NUMBER);
+                database.getNextMoveAndCheckIfPossible(57, O_SIGN_NUMBER);
+                database.getNextMoveAndCheckIfPossible(48, O_SIGN_NUMBER);
+                database.getNextMoveAndCheckIfPossible(39, O_SIGN_NUMBER);
             } catch (IncorrectCellNumberException e) {
                 System.out.println(e.getMessage());
             }
@@ -199,11 +199,11 @@ public class GameTestSuite10x10 {
 
             //When
             try {
-                database.getNextMoveAndCheckIfPossible(5, X_SIGN_NUMBER, false);
-                database.getNextMoveAndCheckIfPossible(6, X_SIGN_NUMBER, false);
-                database.getNextMoveAndCheckIfPossible(7, X_SIGN_NUMBER, false);
-                database.getNextMoveAndCheckIfPossible(8, X_SIGN_NUMBER, false);
-                database.getNextMoveAndCheckIfPossible(9, X_SIGN_NUMBER, false);
+                database.getNextMoveAndCheckIfPossible(5, X_SIGN_NUMBER);
+                database.getNextMoveAndCheckIfPossible(6, X_SIGN_NUMBER);
+                database.getNextMoveAndCheckIfPossible(7, X_SIGN_NUMBER);
+                database.getNextMoveAndCheckIfPossible(8, X_SIGN_NUMBER);
+                database.getNextMoveAndCheckIfPossible(9, X_SIGN_NUMBER);
             } catch (IncorrectCellNumberException e) {
                 System.out.println(e.getMessage());
             }
@@ -221,11 +221,11 @@ public class GameTestSuite10x10 {
 
             //When
             try {
-                database.getNextMoveAndCheckIfPossible(14, X_SIGN_NUMBER, false);
-                database.getNextMoveAndCheckIfPossible(15, X_SIGN_NUMBER, false);
-                database.getNextMoveAndCheckIfPossible(16, X_SIGN_NUMBER, false);
-                database.getNextMoveAndCheckIfPossible(17, X_SIGN_NUMBER, false);
-                database.getNextMoveAndCheckIfPossible(18, X_SIGN_NUMBER, false);
+                database.getNextMoveAndCheckIfPossible(14, X_SIGN_NUMBER);
+                database.getNextMoveAndCheckIfPossible(15, X_SIGN_NUMBER);
+                database.getNextMoveAndCheckIfPossible(16, X_SIGN_NUMBER);
+                database.getNextMoveAndCheckIfPossible(17, X_SIGN_NUMBER);
+                database.getNextMoveAndCheckIfPossible(18, X_SIGN_NUMBER);
             } catch (IncorrectCellNumberException e) {
                 System.out.println(e.getMessage());
             }
@@ -243,11 +243,11 @@ public class GameTestSuite10x10 {
 
             //When
             try {
-                database.getNextMoveAndCheckIfPossible(21, X_SIGN_NUMBER, false);
-                database.getNextMoveAndCheckIfPossible(22, X_SIGN_NUMBER, false);
-                database.getNextMoveAndCheckIfPossible(23, X_SIGN_NUMBER, false);
-                database.getNextMoveAndCheckIfPossible(24, X_SIGN_NUMBER, false);
-                database.getNextMoveAndCheckIfPossible(25, X_SIGN_NUMBER, false);
+                database.getNextMoveAndCheckIfPossible(21, X_SIGN_NUMBER);
+                database.getNextMoveAndCheckIfPossible(22, X_SIGN_NUMBER);
+                database.getNextMoveAndCheckIfPossible(23, X_SIGN_NUMBER);
+                database.getNextMoveAndCheckIfPossible(24, X_SIGN_NUMBER);
+                database.getNextMoveAndCheckIfPossible(25, X_SIGN_NUMBER);
             } catch (IncorrectCellNumberException e) {
                 System.out.println(e.getMessage());
             }
@@ -264,11 +264,11 @@ public class GameTestSuite10x10 {
 
             //When
             try {
-                database.getNextMoveAndCheckIfPossible(21, X_SIGN_NUMBER, false);
-                database.getNextMoveAndCheckIfPossible(31, X_SIGN_NUMBER, false);
-                database.getNextMoveAndCheckIfPossible(41, X_SIGN_NUMBER, false);
-                database.getNextMoveAndCheckIfPossible(51, X_SIGN_NUMBER, false);
-                database.getNextMoveAndCheckIfPossible(61, X_SIGN_NUMBER, false);
+                database.getNextMoveAndCheckIfPossible(21, X_SIGN_NUMBER);
+                database.getNextMoveAndCheckIfPossible(31, X_SIGN_NUMBER);
+                database.getNextMoveAndCheckIfPossible(41, X_SIGN_NUMBER);
+                database.getNextMoveAndCheckIfPossible(51, X_SIGN_NUMBER);
+                database.getNextMoveAndCheckIfPossible(61, X_SIGN_NUMBER);
             } catch (IncorrectCellNumberException e) {
                 System.out.println(e.getMessage());
             }
@@ -285,11 +285,11 @@ public class GameTestSuite10x10 {
 
             //When
             try {
-                database.getNextMoveAndCheckIfPossible(42, X_SIGN_NUMBER, false);
-                database.getNextMoveAndCheckIfPossible(52, X_SIGN_NUMBER, false);
-                database.getNextMoveAndCheckIfPossible(62, X_SIGN_NUMBER, false);
-                database.getNextMoveAndCheckIfPossible(72, X_SIGN_NUMBER, false);
-                database.getNextMoveAndCheckIfPossible(82, X_SIGN_NUMBER, false);
+                database.getNextMoveAndCheckIfPossible(42, X_SIGN_NUMBER);
+                database.getNextMoveAndCheckIfPossible(52, X_SIGN_NUMBER);
+                database.getNextMoveAndCheckIfPossible(62, X_SIGN_NUMBER);
+                database.getNextMoveAndCheckIfPossible(72, X_SIGN_NUMBER);
+                database.getNextMoveAndCheckIfPossible(82, X_SIGN_NUMBER);
             } catch (IncorrectCellNumberException e) {
                 System.out.println(e.getMessage());
             }
@@ -306,11 +306,11 @@ public class GameTestSuite10x10 {
 
             //When
             try {
-                database.getNextMoveAndCheckIfPossible(13, X_SIGN_NUMBER, false);
-                database.getNextMoveAndCheckIfPossible(23, X_SIGN_NUMBER, false);
-                database.getNextMoveAndCheckIfPossible(33, X_SIGN_NUMBER, false);
-                database.getNextMoveAndCheckIfPossible(43, X_SIGN_NUMBER, false);
-                database.getNextMoveAndCheckIfPossible(53, X_SIGN_NUMBER, false);
+                database.getNextMoveAndCheckIfPossible(13, X_SIGN_NUMBER);
+                database.getNextMoveAndCheckIfPossible(23, X_SIGN_NUMBER);
+                database.getNextMoveAndCheckIfPossible(33, X_SIGN_NUMBER);
+                database.getNextMoveAndCheckIfPossible(43, X_SIGN_NUMBER);
+                database.getNextMoveAndCheckIfPossible(53, X_SIGN_NUMBER);
             } catch (IncorrectCellNumberException e) {
                 System.out.println(e.getMessage());
             }
@@ -328,11 +328,11 @@ public class GameTestSuite10x10 {
 
             //When
             try {
-                database.getNextMoveAndCheckIfPossible(11, X_SIGN_NUMBER, false);
-                database.getNextMoveAndCheckIfPossible(22, X_SIGN_NUMBER, false);
-                database.getNextMoveAndCheckIfPossible(33, X_SIGN_NUMBER, false);
-                database.getNextMoveAndCheckIfPossible(44, X_SIGN_NUMBER, false);
-                database.getNextMoveAndCheckIfPossible(55, X_SIGN_NUMBER, false);
+                database.getNextMoveAndCheckIfPossible(11, X_SIGN_NUMBER);
+                database.getNextMoveAndCheckIfPossible(22, X_SIGN_NUMBER);
+                database.getNextMoveAndCheckIfPossible(33, X_SIGN_NUMBER);
+                database.getNextMoveAndCheckIfPossible(44, X_SIGN_NUMBER);
+                database.getNextMoveAndCheckIfPossible(55, X_SIGN_NUMBER);
             } catch (IncorrectCellNumberException e) {
                 System.out.println(e.getMessage());
             }
@@ -349,11 +349,11 @@ public class GameTestSuite10x10 {
 
             //When
             try {
-                database.getNextMoveAndCheckIfPossible(81, X_SIGN_NUMBER, false);
-                database.getNextMoveAndCheckIfPossible(72, X_SIGN_NUMBER, false);
-                database.getNextMoveAndCheckIfPossible(63, X_SIGN_NUMBER, false);
-                database.getNextMoveAndCheckIfPossible(54, X_SIGN_NUMBER, false);
-                database.getNextMoveAndCheckIfPossible(45, X_SIGN_NUMBER, false);
+                database.getNextMoveAndCheckIfPossible(81, X_SIGN_NUMBER);
+                database.getNextMoveAndCheckIfPossible(72, X_SIGN_NUMBER);
+                database.getNextMoveAndCheckIfPossible(63, X_SIGN_NUMBER);
+                database.getNextMoveAndCheckIfPossible(54, X_SIGN_NUMBER);
+                database.getNextMoveAndCheckIfPossible(45, X_SIGN_NUMBER);
             } catch (IncorrectCellNumberException e) {
                 System.out.println(e.getMessage());
             }
@@ -379,9 +379,9 @@ public class GameTestSuite10x10 {
 
             //Then
             assertAll(
-                    () -> assertThrows(IncorrectCellNumberException.class, () -> database.getNextMoveAndCheckIfPossible(firstTry, X_SIGN_NUMBER, false)),
-                    () -> assertThrows(IncorrectCellNumberException.class, () -> database.getNextMoveAndCheckIfPossible(secondTry, X_SIGN_NUMBER, false)),
-                    () -> assertThrows(IncorrectCellNumberException.class, () -> database.getNextMoveAndCheckIfPossible(thirdTry, X_SIGN_NUMBER, false))
+                    () -> assertThrows(IncorrectCellNumberException.class, () -> database.getNextMoveAndCheckIfPossible(firstTry, X_SIGN_NUMBER)),
+                    () -> assertThrows(IncorrectCellNumberException.class, () -> database.getNextMoveAndCheckIfPossible(secondTry, X_SIGN_NUMBER)),
+                    () -> assertThrows(IncorrectCellNumberException.class, () -> database.getNextMoveAndCheckIfPossible(thirdTry, X_SIGN_NUMBER))
             );
         }
 
@@ -396,9 +396,9 @@ public class GameTestSuite10x10 {
 
             //Then
             assertAll(
-                    () -> assertDoesNotThrow(() -> database.getNextMoveAndCheckIfPossible(firstTry, X_SIGN_NUMBER, false)),
-                    () -> assertDoesNotThrow(() -> database.getNextMoveAndCheckIfPossible(secondTry, X_SIGN_NUMBER, false)),
-                    () -> assertDoesNotThrow(() -> database.getNextMoveAndCheckIfPossible(thirdTry, X_SIGN_NUMBER, false))
+                    () -> assertDoesNotThrow(() -> database.getNextMoveAndCheckIfPossible(firstTry, X_SIGN_NUMBER)),
+                    () -> assertDoesNotThrow(() -> database.getNextMoveAndCheckIfPossible(secondTry, X_SIGN_NUMBER)),
+                    () -> assertDoesNotThrow(() -> database.getNextMoveAndCheckIfPossible(thirdTry, X_SIGN_NUMBER))
             );
         }
     }

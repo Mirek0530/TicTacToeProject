@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="Test class for X win" tests="8" skipped="0" failures="0" errors="0" timestamp="2022-11-18T18:09:27" hostname="LAPTOP-8451VTIE" time="0.072">
+<testsuite name="Test class for X win" tests="8" skipped="0" failures="0" errors="0" timestamp="2022-11-30T18:37:54" hostname="LAPTOP-8451VTIE" time="0.112">
   <properties/>
-  <testcase name="testXWinInColumnSecondCase()" classname="com.game.tictactoe.GameTestSuite48x48$TestXWinClass" time="0.01"/>
-  <testcase name="testXWinInColumnThirdCase()" classname="com.game.tictactoe.GameTestSuite48x48$TestXWinClass" time="0.009"/>
-  <testcase name="testXWinInColumnFirstCase()" classname="com.game.tictactoe.GameTestSuite48x48$TestXWinClass" time="0.009"/>
-  <testcase name="testXWinInRowSecondCase()" classname="com.game.tictactoe.GameTestSuite48x48$TestXWinClass" time="0.008"/>
-  <testcase name="testXWinInRowThirdCase()" classname="com.game.tictactoe.GameTestSuite48x48$TestXWinClass" time="0.009"/>
-  <testcase name="testXWinInBottomToTopDiagonal()" classname="com.game.tictactoe.GameTestSuite48x48$TestXWinClass" time="0.008"/>
-  <testcase name="testXWinInRowFirstCase()" classname="com.game.tictactoe.GameTestSuite48x48$TestXWinClass" time="0.008"/>
-  <testcase name="testXWinInTopToBottomDiagonal()" classname="com.game.tictactoe.GameTestSuite48x48$TestXWinClass" time="0.008"/>
+  <testcase name="testXWinInColumnSecondCase()" classname="com.game.tictactoe.GameTestSuite48x48$TestXWinClass" time="0.014"/>
+  <testcase name="testXWinInColumnThirdCase()" classname="com.game.tictactoe.GameTestSuite48x48$TestXWinClass" time="0.013"/>
+  <testcase name="testXWinInColumnFirstCase()" classname="com.game.tictactoe.GameTestSuite48x48$TestXWinClass" time="0.012"/>
+  <testcase name="testXWinInRowSecondCase()" classname="com.game.tictactoe.GameTestSuite48x48$TestXWinClass" time="0.013"/>
+  <testcase name="testXWinInRowThirdCase()" classname="com.game.tictactoe.GameTestSuite48x48$TestXWinClass" time="0.015"/>
+  <testcase name="testXWinInBottomToTopDiagonal()" classname="com.game.tictactoe.GameTestSuite48x48$TestXWinClass" time="0.012"/>
+  <testcase name="testXWinInRowFirstCase()" classname="com.game.tictactoe.GameTestSuite48x48$TestXWinClass" time="0.012"/>
+  <testcase name="testXWinInTopToBottomDiagonal()" classname="com.game.tictactoe.GameTestSuite48x48$TestXWinClass" time="0.014"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

@@ -4,14 +4,12 @@ import java.util.*;
 
 public class Database {
     Field field;
-    MessagePrinter printer;
     Map<Integer, Integer> cellsMap = new HashMap<>();
 
     private int fieldSize;
 
     public Database() {
         field = new Field();
-        printer = new MessagePrinter();
     }
 
     public void initializeCellsMap(int fieldSize) {
@@ -27,14 +25,14 @@ public class Database {
         field.printField(cellsMap);
     }
 
-    public void getResult() {
+    public String getResult() {
         String result;
         if (checkWinLose() == 0 && checkAllOccupied()) {
             result = "Draw!";
         } else {
             result = "Player" + checkWinLose() + " wins!";
         }
-        printer.printResult(result);
+        return result;
     }
 
     public boolean isGameOver() {
@@ -205,23 +203,19 @@ public class Database {
         return allOccupied;
     }
 
-    public boolean getNextMoveAndCheckIfPossible(int cellNumber, int signNumber, boolean botPlayed) throws IncorrectCellNumberException {
+    public boolean getNextMoveAndCheckIfPossible(int cellNumber, int signNumber) throws IncorrectCellNumberException {
         boolean isPossible = false;
 
         if ((cellNumber < 1) || (cellNumber > cellsMap.size())) {
             throw new IncorrectCellNumberException();
         }
-        else {
-            if (cellsMap.get(cellNumber) == 0) {
-                cellsMap.remove(cellNumber);
-                cellsMap.put(cellNumber, signNumber);
-                isPossible = true;
-            } else {
-                if (!botPlayed) {
-                    printer.errorCellIsOccupied();
-                }
-            }
+
+        if (cellsMap.get(cellNumber) == 0) {
+            cellsMap.remove(cellNumber);
+            cellsMap.put(cellNumber, signNumber);
+            isPossible = true;
         }
+
         return isPossible;
     }
 

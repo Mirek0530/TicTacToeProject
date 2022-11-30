@@ -4,6 +4,10 @@ import java.util.Map;
 
 public class Field {
 
+    private enum CellSign {
+        X, O;
+    }
+
     public void printField(Map<Integer, Integer> cells) {
         if (cells.size() == 9) {
             printField3x3(cells);
@@ -14,16 +18,15 @@ public class Field {
     }
 
     private String mapCell(int cellStatus) {
-        String sign = "";
+        String sign = " ";
         switch (cellStatus) {
             case 0:
-                sign = " ";
                 break;
             case 1:
-                sign = "X";
+                sign = CellSign.X.toString();
                 break;
             case 2:
-                sign = "O";
+                sign = CellSign.O.toString();
                 break;
         }
         return sign;

@@ -2,13 +2,14 @@ package com.game.tictactoe;
 
 import java.util.Scanner;
 
+import static com.game.tictactoe.MessagePrinter.MessageType.*;
+
 public class Game {
-    private Database database;
-    private MessagePrinter printer;
-    private Scanner consoleInput;
+    private final Database database;
+    private final MessagePrinter printer;
+    private final Scanner consoleInput;
     private boolean isGameModePlayerVsPlayer;
     private boolean isGameModeSelected = false;
-    private boolean isEnd = false;
     private boolean isMovePlayed = false;
     private final static int X_SIGN_NUMBER = 1;
     private final static int O_SIGN_NUMBER = 2;
@@ -20,12 +21,14 @@ public class Game {
     }
 
     public void run() {
-        printer.welcomeMessage();
+        boolean isEnd = false;
 
-        printer.chooseGameModeMessage();
+        printer.printMessage(WELCOME_MESSAGE);
+
+        printer.printMessage(GAME_MODE_MESSAGE);
         setGameMode(consoleInput);
 
-        printer.chooseFieldSize();
+        printer.printMessage(CHOOSE_FIELD_SIZE_MESSAGE);
         setFieldSize(consoleInput);
         database.initializeCellsMap(database.getFieldSize());
 
@@ -36,9 +39,8 @@ public class Game {
             isMovePlayed = false;
             humanMove(X_SIGN_NUMBER);
             database.showStatus();
-            isEnd = database.isGameOver();
 
-            if (isEnd) break;
+            if (database.isGameOver()) break;
 
             isMovePlayed = false;
             if (!isGameModePlayerVsPlayer) {
@@ -50,7 +52,7 @@ public class Game {
             isEnd = database.isGameOver();
         }
 
-        database.getResult();
+        System.out.println(database.getResult());
     }
 
     private void humanMove(int signNumber) {
@@ -66,9 +68,12 @@ public class Game {
             inputEntry = input.next();
             try {
                 chosenCellNumber = Integer.parseInt(inputEntry);
-                isMovePlayed = database.getNextMoveAndCheckIfPossible(chosenCellNumber, signNumber, false);
+                isMovePlayed = database.getNextMoveAndCheckIfPossible(chosenCellNumber, signNumber);
+                if (!isMovePlayed) {
+                    printer.printMessage(CELL_OCCUPIED_MESSAGE);
+                }
             } catch (IncorrectCellNumberException | NumberFormatException exception) {
-                printer.print(exception.getMessage());
+                printer.printExceptionMessage(exception.getMessage());
             }
         }
     }
@@ -77,12 +82,12 @@ public class Game {
         while (!isMovePlayed) {
             int generatedCellNumber = database.generateComputerMove();
             try {
-                isMovePlayed = database.getNextMoveAndCheckIfPossible(generatedCellNumber, signNumber, true);
+                isMovePlayed = database.getNextMoveAndCheckIfPossible(generatedCellNumber, signNumber);
             } catch (IncorrectCellNumberException exception) {
-                printer.print(exception.getMessage());
+                printer.printExceptionMessage(exception.getMessage());
             }
         }
-        printer.computerPlayed();
+        printer.printMessage(COMPUTER_MOVED_MESSAGE);
     }
 
     private void setGameMode(Scanner input) {
@@ -96,7 +101,7 @@ public class Game {
                     gameModeSelection = Integer.parseInt(inputEntry);
                     break;
                 } catch (NumberFormatException nfe) {
-                    printer.errorSettingGameMode();
+                    printer.printMessage(ERROR_SETTING_GAME_MODE_MESSAGE);
                 }
             }
 
@@ -111,7 +116,7 @@ public class Game {
                      break;
                  default:
                      isGameModeSelected = false;
-                     printer.errorSettingGameMode();
+                     printer.printMessage(ERROR_SETTING_GAME_MODE_MESSAGE);
             }
         }
     }
@@ -126,7 +131,7 @@ public class Game {
                 fieldSizeSelection = Integer.parseInt(inputEntry);
                 break;
             } catch (NumberFormatException nfe) {
-                printer.errorSettingFieldSize();
+                printer.printMessage(ERROR_SETTING_FIELD_SIZE_MESSAGE);
             }
         }
 
